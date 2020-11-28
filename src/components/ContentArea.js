@@ -28,6 +28,7 @@ class ContentArea extends React.Component {
 
         <div>
           <UserManager logInCallback={ this.handleLogInChange }
+          /* function which is waiting to be called in UserManager: */
            showMessageArea={ userInfo => ( <MessageArea userInfo={userInfo} /> ) } />
 
           <AlbumMaker />

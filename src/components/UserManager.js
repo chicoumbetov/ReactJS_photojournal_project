@@ -22,6 +22,7 @@ class UserManager extends React.Component {
     // only do this if the ID has changed
 
     // Task 7
+    //comparing the last userId to the one that just been set
     if (prevState.userId !== this.state.userId) {
 
       // calls ALL the event listeners and pass them the new user ID
@@ -41,11 +42,11 @@ class UserManager extends React.Component {
       userName: "",
       loggedIn: false,
       instructions: "Please log in to comment on photos.",
-      userIdFieldValue: "",
-      passwordFieldValue: ""
+      userIdFieldValue: "", //Id holder of what user enter
+      passwordFieldValue: ""  //password holder that is written by user
     }
 
-    // these are necessary for "this" to point to this object
+    // these are necessary for "this" to point to this object and not to global
     this.handleUserIdChange = this.handleUserIdChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.idChangeSubscribe = this.idChangeSubscribe.bind(this);
@@ -54,6 +55,7 @@ class UserManager extends React.Component {
   }
 
   // Task 3
+
   handleUserIdChange(event) {
     this.setState({ userIdFieldValue: event.target.value });
   }
@@ -62,7 +64,7 @@ class UserManager extends React.Component {
     this.setState({ passwordFieldValue: event.target.value });
   }
 
-  // this method is for listener to add themselves to the list so that
+  // these methods are for listener to add themselves to the list so that
   // they will get notified when the user ID has changed
 
   // Task 7
@@ -75,7 +77,7 @@ class UserManager extends React.Component {
   logIn() {
 
     // Task 2
-    // this.setState ({ loggedIn: true });
+    // this.setState ({ loggedIn: true });  //log in without id & password
 
     // Task 3
     let userIdEntered = this.state.userIdFieldValue;
@@ -111,7 +113,7 @@ class UserManager extends React.Component {
   logOut() {
 
     // Task 2
-    //this.setState({loggedIn: false});
+    //this.setState({loggedIn: false});  // log out without id & password
 
     // Task 3
     this.setState( { instructions: "Please log in to comment on photos." } )
@@ -125,6 +127,7 @@ class UserManager extends React.Component {
         return (
           <div className="user-manager-block user-manager-block-active-background">
             <p>Logged in as: { this.state.userName }&nbsp;<input className="button" type="button" value="Log Out" onClick={this.logOut} /></p>
+            {/*passing of entire state to function showMessageArea which is waiting for user in ContentArea.js */}
             { this.props.showMessageArea(this.state) }
           </div>
         );

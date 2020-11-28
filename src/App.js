@@ -12,7 +12,7 @@ class App extends React.Component {
   componentDidMount() {
     console.log("App.componentDidMount( )");
 
-    // at this point, both the StatusBar and the UserManagher have rendered
+    // at this point, both the StatusBar and the UserManager have rendered
     // let's connect them!
 
     // Task 7
@@ -37,7 +37,7 @@ class App extends React.Component {
           <div className="App">
             <BannerImage />
             <div>
-              <h1>Welcome to My Photo Journal (Finished)</h1>
+              <h1>Welcome to My Photo Journal</h1>
             </div>
             <StatusBar />
             <ContentArea />
